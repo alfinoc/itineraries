@@ -118,7 +118,9 @@ Config.infobox = function(title, stays) {
 Config.color = function(key) {
    return {
       chris: '#72B3CC',
-      mom: '#C75646'
+      mom: '#C75646',
+      dad: '#8EB33B',
+      nick: '#C8A0D1'
    }[key] || '#FFFFFF';
 }
 

@@ -45,3 +45,11 @@ html, body, #map-canvas {
 .infobox h2.mom span:first-child {
    border-color: #C75646;
 }
+
+.infobox h2.dad span:first-child {
+   border-color: #8EB33B;
+}
+
+.infobox h2.nick span:first-child {
+   border-color: #C8A0D1;
+}
