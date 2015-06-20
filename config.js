@@ -85,18 +85,47 @@ Config.polylineOptions = {
    strokeWeight: 3,
    icons: [{
       icon: { path: google.maps.SymbolPath.FORWARD_OPEN_ARROW },
-      offset: '50%'
+      repeat: '200px',
+      offset: '190px'
    }],
 };
+
+Config.infobox = function(title, stays) {
+   function elt(tag, content, className) {
+      var element = document.createElement(tag);
+      if (className)
+         element.classList.add(className);
+      if (content)
+         element.innerHTML = content;
+      return element;
+   }
+
+   var container = elt('div', '', 'infobox');
+   container.appendChild(elt('h1', title));
+
+   for (var name in stays) {
+      var subheader = elt('h2', '', name);
+      subheader.appendChild(elt('span', name));
+      subheader.appendChild(elt('span', stays[name]));
+      container.appendChild(subheader);
+   }
+ 
+   var serializer = elt('div');
+   serializer.appendChild(container);
+   return serializer.innerHTML;
+}
 
 Config.color = function(key) {
    return {
       chris: '#72B3CC',
-      mom: '#E09690'
+      mom: '#C75646'
    }[key] || '#FFFFFF';
 }
 
 Config.mixin = function(a, b) {
+   a = a || {};
+   b = b || {};
+
    var res = {};
    for (var key in a)
       res[key] = a[key];
@@ -104,3 +133,12 @@ Config.mixin = function(a, b) {
       res[key] = b[key];
    return res;
 }
+
+Config.partial = function(fn, var_args) {
+   var args = Array.prototype.slice.call(arguments, 1);
+   return function() {
+      var newArgs = args.slice();
+      newArgs.push.apply(newArgs, arguments);
+      return fn.apply(this, newArgs);
+   };
+};

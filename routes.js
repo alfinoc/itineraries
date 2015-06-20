@@ -7,6 +7,7 @@ Routes.location = {
    Marseille: { 'lat': 43.304630, 'lng': 5.378360 },
    Paris: { 'lat': 48.859367, 'lng': 2.347232 },
    Edinburgh: { 'lat': 55.949813, 'lng': -3.188561 },
+   Ljubljana: { 'lat': 46.057750, 'lng': 14.506135 }
 };
 
 Routes.chris = [
@@ -47,7 +48,11 @@ Routes.mom = [
       name: 'Zurich',
       arrive: '7/29',
       depart: '8/1',
-      departTransit: 'train'
+   },
+   {
+      name: 'Ljubljana',
+      arrive: '8/1',
+      depart: '8/8',
    },
    {
       name: 'Edinburgh',
